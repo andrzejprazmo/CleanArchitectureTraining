@@ -1,7 +1,7 @@
-﻿using MyFramework;
+﻿using MyExtendedFramework;
 using System;
 
-namespace Chapter3Sample2App
+namespace Chapter3Sample3App
 {
 	class Program
 	{
