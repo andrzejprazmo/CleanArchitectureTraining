@@ -31,6 +31,8 @@ namespace MyFramework
                     {
                         Console.WriteLine(menuItem.OptionText);
                     }
+                    Console.WriteLine("Naciśnij klawisz 'Esc', żeby zakończyć.");
+                    
                     var keyInfo = Console.ReadKey();
                     if (keyInfo.Key == ConsoleKey.Escape)
                     {

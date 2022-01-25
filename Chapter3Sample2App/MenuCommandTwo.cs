@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using MyFramework;
 
-namespace ConsoleApp1
+namespace Chapter3Sample2App
 {
     public class MenuCommandTwo : IMenuCommand
     {
