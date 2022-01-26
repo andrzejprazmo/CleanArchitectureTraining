@@ -1,10 +1,9 @@
-﻿using System;
+﻿using MyFrameworkWithCastle;
+using System;
 using System.Collections.Generic;
 using System.Text;
-using Chapter3Sample3App.Logger;
-using MyExtendedFramework;
 
-namespace Chapter3Sample3App
+namespace Chapter3Sample4App
 {
     public class MenuCommandTwo : IMenuCommand
     {
