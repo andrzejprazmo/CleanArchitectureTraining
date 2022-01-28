@@ -59,9 +59,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chapter2Sample2App", "Chapt
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample3", "Sample3", "{CA6A990D-6BFC-4466-AB8F-183D46B34E32}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chapter2Sample3App", "Chapter2Sample3App\Chapter2Sample3App.csproj", "{87C6504B-94FC-47AB-AFE1-CE8212624BE6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chapter2Sample3App", "Chapter2Sample3App\Chapter2Sample3App.csproj", "{87C6504B-94FC-47AB-AFE1-CE8212624BE6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "This.Is.Some.External.Library", "This.Is.Some.External.Library\This.Is.Some.External.Library.csproj", "{CA8B9521-37A0-48ED-BC1A-B78717478BD5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "This.Is.Some.External.Library", "This.Is.Some.External.Library\This.Is.Some.External.Library.csproj", "{CA8B9521-37A0-48ED-BC1A-B78717478BD5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonApp", "CommonApp\CommonApp.csproj", "{295DDD43-F0DA-4D5C-B0EF-0FA4F96F3A54}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -125,6 +127,10 @@ Global
 		{CA8B9521-37A0-48ED-BC1A-B78717478BD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA8B9521-37A0-48ED-BC1A-B78717478BD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA8B9521-37A0-48ED-BC1A-B78717478BD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{295DDD43-F0DA-4D5C-B0EF-0FA4F96F3A54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{295DDD43-F0DA-4D5C-B0EF-0FA4F96F3A54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{295DDD43-F0DA-4D5C-B0EF-0FA4F96F3A54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{295DDD43-F0DA-4D5C-B0EF-0FA4F96F3A54}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

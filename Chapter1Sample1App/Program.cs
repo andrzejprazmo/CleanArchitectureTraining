@@ -2,6 +2,7 @@
 
 namespace Chapter1Sample1App
 {
+
 	class Program
 	{
 		static void Main(string[] args)
