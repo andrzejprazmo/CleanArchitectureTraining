@@ -4,13 +4,17 @@ using System.Text;
 
 namespace Chapter1Sample2App
 {
+	//public delegate string RollTheDiceAction(int generatedNumber);
 	public class RandomGenerator
 	{
-		public string RollTheDice()
+		public string RollTheDice(Func<int, string> action)
 		{
 			Random random = new Random();
 			int generatedNumber = random.Next(1, 6);
-
+			if (action != null)
+			{
+				return action(generatedNumber);
+			}
 			return $"Wylosowano liczbę: {generatedNumber}";
 		}
 

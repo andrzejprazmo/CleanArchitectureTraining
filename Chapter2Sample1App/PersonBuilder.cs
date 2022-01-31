@@ -12,6 +12,7 @@ namespace Chapter2Sample1App
         {
             Type personType = typeof(Person);
 
+
             Person person = Activator.CreateInstance(personType) as Person;
 
             PropertyInfo[] personProperties = personType.GetProperties();

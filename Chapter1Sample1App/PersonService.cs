@@ -4,13 +4,38 @@ using System.Text;
 
 namespace Chapter1Sample1App
 {
-	public class Person
+	public interface IEntity
+	{
+		int Id { get; set; }
+	}
+	public class InsertResult<TEntity>
+		where TEntity : IEntity
+	{
+		public InsertResult(TEntity value)
+		{
+			Value = value;
+		}
+		public TEntity Value { get; set; }
+
+		public bool Succeded
+		{
+			get
+			{
+				if (Value != null && Value.Id > 0)
+				{
+					return true;
+				}
+				return false;
+			}
+		}
+	}
+	public class Person : IEntity
 	{
 		public int Id { get; set; }
 		public string FirstName { get; set; }
 		public string LastName { get; set; }
 	}
-	public class Address
+	public class Address : IEntity
 	{
 		public int Id { get; set; }
 		public string City { get; set; }
@@ -19,7 +44,7 @@ namespace Chapter1Sample1App
 	}
 	public class PersonService
 	{
-		public Person CreatePerson(string firstName, string lastName)
+		public InsertResult<Person> CreatePerson(string firstName, string lastName)
 		{
 			var person = new Person();
 			person.FirstName = firstName;
@@ -27,10 +52,10 @@ namespace Chapter1Sample1App
 
 			// TODO zapis do DB
 
-			return person;
+			return new InsertResult<Person>(person);
 		}
 
-		public Address CreateAddress(string city, string zipCode, string streetNumber)
+		public InsertResult<Address> CreateAddress(string city, string zipCode, string streetNumber)
 		{
 			var address = new Address();
 			address.City = city;
@@ -39,7 +64,7 @@ namespace Chapter1Sample1App
 
 			// TODO zapis do DB
 
-			return address;
+			return new InsertResult<Address>(address);
 		}
 	}
 }

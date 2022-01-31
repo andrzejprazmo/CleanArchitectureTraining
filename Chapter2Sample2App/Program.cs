@@ -8,18 +8,18 @@ namespace Chapter2Sample2App
         {
             ClassPresenter classPresenter = new ClassPresenter();
 
-            ExternalCar externalCar = new ExternalCar();
-            externalCar.Producer = "Mercedes";
-            externalCar.Model = "A200";
-            externalCar.Year = 2016;
-            InternalCar internalCar = new InternalCar();
+            //ExternalCar externalCar = new ExternalCar();
+            //externalCar.Producer = "Mercedes";
+            //externalCar.Model = "A200";
+            //externalCar.Year = 2016;
+            //InternalCar internalCar = new InternalCar();
 
-            SimplyMapper mapper = new SimplyMapper();
-            mapper.Map(externalCar, internalCar);
+            //SimplyMapper mapper = new SimplyMapper();
+            //mapper.Map(externalCar, internalCar);
 
-            InternalCar internalCarSecond = mapper.Map<InternalCar>(externalCar);
+            //InternalCar internalCarSecond = mapper.Map<InternalCar>(externalCar);
 
-            classPresenter.DisplayProperties(internalCarSecond);
+            //classPresenter.DisplayProperties(internalCarSecond);
 
 
             Person person = new Person();
@@ -27,6 +27,8 @@ namespace Chapter2Sample2App
             person.LastName = "Kowalski";
             
             classPresenter.DisplayProperties(person);
+            
+            Console.ReadKey();
         }
     }
 

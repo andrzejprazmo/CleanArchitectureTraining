@@ -9,7 +9,11 @@ namespace Chapter1Sample1App
 		{
 			var personService = new PersonService();
 
-			personService.CreatePerson("Jan", "Kowalski");
+			var result = personService.CreatePerson("Jan", "Kowalski");
+			if (result.Succeded)
+			{
+				var person = result.Value;
+			}
 		}
 	}
 }

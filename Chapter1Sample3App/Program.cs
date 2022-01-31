@@ -7,7 +7,8 @@ namespace Chapter1Sample3App
 		static void Main(string[] args)
 		{
 			DateTime someBirthDate = new DateTime(1988, 3, 1);
-			int age = Age(someBirthDate);
+			//int age = Age(someBirthDate);
+			int age = someBirthDate.Age();
 
 			Console.WriteLine($"Twój wiek (lata): {age}");
 		}

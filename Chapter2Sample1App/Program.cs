@@ -8,11 +8,19 @@ namespace Chapter2Sample1App
     {
         static void Main(string[] args)
         {
-            //Recognizer recognizer = new Recognizer();
-            //recognizer.WhoAmI(new Person());
+			//Recognizer recognizer = new Recognizer();
+			//recognizer.WhoAmI(new Person());
 
-            PersonBuilder builder = new PersonBuilder();
-            builder.Build();
-        }
+			//var person = new Person();
+			//person.Id = 1;
+			//person.FirstName = "Jan";
+			//person.LastName = "Kowalski";
+
+			//string fullName = person.GetFullName("");
+
+
+			PersonBuilder builder = new PersonBuilder();
+			builder.Build();
+		}
     }
 }
