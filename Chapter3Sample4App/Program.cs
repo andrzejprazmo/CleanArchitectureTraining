@@ -7,7 +7,7 @@ namespace Chapter3Sample4App
     {
         static void Main(string[] args)
         {
-            new ApplicationBuilder().Run();
+            new ApplicationBuilder().Run<Startup>();
         }
     }
 }

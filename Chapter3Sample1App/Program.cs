@@ -9,14 +9,14 @@ namespace Chapter3Sample1App
             // Inicjalizacja
             Console.Clear();
 
+            Console.WriteLine("Witamy w naszej aplikacji");
+            Console.WriteLine("Naciśnij klawisz 'Q', żeby zobaczyć efekt.");
+            Console.WriteLine("Naciśnij klawisz 'W', żeby zobaczyć efekt.");
+            Console.WriteLine("Naciśnij klawisz 'Esc', żeby zakończyć.");
+
             // Petla główna programu
             while (true)
             {
-                Console.WriteLine("Witamy w naszej aplikacji");
-                Console.WriteLine("Naciśnij klawisz 'Q', żeby zobaczyć efekt.");
-                Console.WriteLine("Naciśnij klawisz 'W', żeby zobaczyć efekt.");
-                Console.WriteLine("Naciśnij klawisz 'Esc', żeby zakończyć.");
-
                 var keyInfo = Console.ReadKey();
                 if (keyInfo.Key == ConsoleKey.Escape)
                 {

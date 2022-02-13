@@ -8,10 +8,10 @@ namespace Chapter3Sample4App
 {
     public class MenuCommandOne : IMenuCommand
     {
-        private readonly ILogger logger;
+        private readonly ILogger _logger;
 		public MenuCommandOne(ILogger logger)
 		{
-			this.logger = logger;
+			_logger = logger;
 		}
 
         public string OptionText => "Naciśnij klawisz 'Q', żeby zobaczyć efekt";
@@ -21,6 +21,8 @@ namespace Chapter3Sample4App
         public void Execute()
         {
             Console.WriteLine("Naciśnąłeś klawisz 'Q'");
+            Console.WriteLine($"MenuCommandOne->Logger->SomeText = {_logger.SomeText}");
+
         }
     }
 }

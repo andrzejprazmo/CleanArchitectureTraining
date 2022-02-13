@@ -6,6 +6,8 @@ namespace Chapter3Sample4App.Logger
 {
 	public interface ILogger
 	{
+		string SomeText { get; set; }
+
 		void LogError(Exception e);
 	}
 }

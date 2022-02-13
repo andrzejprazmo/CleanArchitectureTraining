@@ -7,13 +7,23 @@ namespace Chapter3Sample2App
 {
     public class MenuCommandOne : IMenuCommand
     {
+        private readonly UserContext _userContext;
+        public MenuCommandOne(UserContext userContext)
+        {
+            _userContext = userContext;
+        }
+
         public string OptionText => "Naciśnij klawisz 'Q', żeby zobaczyć efekt";
 
         public char KeyCode => 'q';
 
         public void Execute()
         {
-            Console.WriteLine("Naciśnąłeś klawisz 'Q'");
+			if (_userContext.IsAuthenticated)
+			{
+                Console.WriteLine("Naciśnąłeś klawisz 'Q'");
+            }
+            Console.WriteLine("Zaloguj się");
         }
     }
 }

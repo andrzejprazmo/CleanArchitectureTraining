@@ -24,15 +24,16 @@ namespace MyFramework
                     IMenuCommand menuCommand = Activator.CreateInstance(menuCommandType) as IMenuCommand;
                     menuItems.Add(menuCommand);
                 }
+
+                Console.WriteLine(startupClass.LeadText);
+                foreach (var menuItem in menuItems)
+                {
+                    Console.WriteLine(menuItem.OptionText);
+                }
+                Console.WriteLine("Naciśnij klawisz 'Esc', żeby zakończyć.");
+
                 while (true)
                 {
-                    Console.WriteLine(startupClass.LeadText);
-                    foreach (var menuItem in menuItems)
-                    {
-                        Console.WriteLine(menuItem.OptionText);
-                    }
-                    Console.WriteLine("Naciśnij klawisz 'Esc', żeby zakończyć.");
-                    
                     var keyInfo = Console.ReadKey();
                     if (keyInfo.Key == ConsoleKey.Escape)
                     {

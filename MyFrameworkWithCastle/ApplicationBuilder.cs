@@ -4,52 +4,55 @@ using System.Linq;
 using System.Collections.Generic;
 using Castle.Windsor;
 using Castle.MicroKernel.Registration;
+using Castle.MicroKernel.Lifestyle;
 
 namespace MyFrameworkWithCastle
 {
     public class ApplicationBuilder
     {
-        public void Run()
+        public void Run<TStartup>() where TStartup : IStartup
         {
-            Assembly[] assemblies = AppDomain.CurrentDomain.GetAssemblies();
+            IWindsorContainer windsorContainer = new WindsorContainer();
 
-            Type[] assemblyTypes = assemblies.SelectMany(a=>a.GetTypes()).ToArray();
+            //windsorContainer.Register()
 
-            Type startupClassType = assemblyTypes.Where(t => !t.IsInterface && !t.IsAbstract && typeof(IStartup).IsAssignableFrom(t)).FirstOrDefault();
-            if (startupClassType != null)
+            windsorContainer.Register(Classes.FromAssemblyContaining(typeof(TStartup)).BasedOn<IStartup>().WithServiceDefaultInterfaces().LifestyleTransient());
+
+            windsorContainer.Register(Classes.FromAssemblyContaining(typeof(TStartup)).BasedOn<IMenuCommand>().WithServiceDefaultInterfaces().LifestyleTransient());
+
+            IStartup startupClass = windsorContainer.Resolve<IStartup>();
+
+            if (startupClass != null)
             {
-                IStartup startupClass = Activator.CreateInstance(startupClassType) as IStartup;
+                using (windsorContainer.BeginScope())
+				{
+                    startupClass.RegisterServices(windsorContainer);
 
-                IWindsorContainer windsorContainer = new WindsorContainer();
+                    var menuItems = windsorContainer.ResolveAll<IMenuCommand>();
 
-                startupClass.RegisterServices(windsorContainer);
-
-                var menuItems = windsorContainer.ResolveAll<IMenuCommand>();
-
-                while (true)
-                {
                     Console.WriteLine(startupClass.LeadText);
                     foreach (var menuItem in menuItems)
                     {
                         Console.WriteLine(menuItem.OptionText);
                     }
                     Console.WriteLine("Naciśnij klawisz 'Esc', żeby zakończyć.");
-                    
-                    var keyInfo = Console.ReadKey();
-                    if (keyInfo.Key == ConsoleKey.Escape)
+
+                    while (true)
                     {
-                        break;
-                    }
-                    IMenuCommand selectedCommand = menuItems.FirstOrDefault(m => m.KeyCode == keyInfo.KeyChar);
-                    if (selectedCommand != null)
-                    {
-                        Console.WriteLine();
-                        selectedCommand.Execute();
+                        var keyInfo = Console.ReadKey();
+                        if (keyInfo.Key == ConsoleKey.Escape)
+                        {
+                            break;
+                        }
+                        IMenuCommand selectedCommand = menuItems.FirstOrDefault(m => m.KeyCode == keyInfo.KeyChar);
+                        if (selectedCommand != null)
+                        {
+                            Console.WriteLine();
+                            selectedCommand.Execute();
+                        }
                     }
                 }
             }
         }
-
-
     }
 }

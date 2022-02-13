@@ -14,9 +14,9 @@ namespace Chapter3Sample4App
 
         public void RegisterServices(IWindsorContainer windsorContainer)
         {
-            windsorContainer.Register(Component.For<IMenuCommand>().ImplementedBy<MenuCommandOne>().LifestyleTransient());
-            windsorContainer.Register(Component.For<IMenuCommand>().ImplementedBy<MenuCommandTwo>().LifestyleTransient());
-            windsorContainer.Register(Component.For<ILogger>().ImplementedBy<ConsoleLogger>().LifestyleTransient());
+            windsorContainer.Register(Component.For<ILogger>().ImplementedBy<ConsoleLogger>().LifestyleSingleton());
+            windsorContainer.Register(Component.For<ISomeService>().ImplementedBy<SomeService>().LifestyleTransient());
+            windsorContainer.Register(Component.For<ISomeRepository>().ImplementedBy<SomeRepository>().LifestyleTransient());
         }
     }
 }

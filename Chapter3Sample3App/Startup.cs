@@ -12,7 +12,15 @@ namespace Chapter3Sample3App
 
 		public void RegisterServices(Dictionary<Type, object> servicesDictionary)
 		{
+
+#if DEBUG
 			servicesDictionary.Add(typeof(ILogger), new ConsoleLogger());
+#else
+			servicesDictionary.Add(typeof(ILogger), new FileLogger());
+
+#endif
+
+			servicesDictionary.Add(typeof(UserContext), new UserContext());
 		}
 	}
 }
